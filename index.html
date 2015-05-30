@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+	<title>To Do App</title>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript" src="angular-animate.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body ng-controller="todoController as todoList">
+	<div class="container">
+
+		<h1>To Do List</h1>
+		<form ng-submit="todoList.addThing()">
+  			<div class="form-group">
+    			<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Add something to the list!" ng-model="todoList.thing">
+  			</div>
+  			<input type="submit" value="Add" class="btn btn-default"></input>
+  		</form>
+
+  		<ul class="list-group">
+  			<li class="list-group-item clearfix" ng-repeat="item in todoList.list"><input type="checkbox">
+  				{{item.thing}}
+  			<button type="submit" class="btn btn-danger pull-right" ng-click="todoList.remove(item)">Remove Item</button></li>
+  		</ul>
+  		<button type="submit" class="btn btn-danger" ng-click="todoList.clearList()">Clear List</button>
+
+	</div>
+
+</body>
+</html>
